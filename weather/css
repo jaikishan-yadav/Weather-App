@@ -1,0 +1,17 @@
+#weather {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  max-width: 400px;
+  font-family: Arial, sans-serif;
+}
+
+#weather h2 {
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
+#weather p {
+  margin: 0;
+}

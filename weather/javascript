@@ -1,0 +1,24 @@
+const apiKey = 'YOUR_API_KEY';
+const location = 'LOCATION_NAME';
+
+fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`)
+  .then(response => response.json())
+  .then(data => {
+    const weather = {
+      location: data.name,
+      description: data.weather[0].description,
+      temperature: Math.round(data.main.temp - 273.15),
+      humidity: data.main.humidity,
+      wind: data.wind.speed,
+    };
+
+    const weatherDiv = document.getElementById('weather');
+    weatherDiv.innerHTML = `
+      <h2>${weather.location}</h2>
+      <p>${weather.description}</p>
+      <p>Temperature: ${weather.temperature}°C</p>
+      <p>Humidity: ${weather.humidity}%</p>
+      <p>Wind: ${weather.wind} km/h</p>
+    `;
+  })
+  .catch(error => console.log(error));
